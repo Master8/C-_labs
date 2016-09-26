@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditionalTask1", "AdditionalTask1\AdditionalTask1.csproj", "{AE4EEEB5-DE90-4513-ABEC-4CD91815989E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Figures", "Figures\Figures.csproj", "{3E972BDE-213F-4157-8950-734C55F726F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triangle.Tests", "Triangle.Tests\Triangle.Tests.csproj", "{3F1379F3-D694-4637-A82E-0938FFF30913}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE4EEEB5-DE90-4513-ABEC-4CD91815989E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE4EEEB5-DE90-4513-ABEC-4CD91815989E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE4EEEB5-DE90-4513-ABEC-4CD91815989E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE4EEEB5-DE90-4513-ABEC-4CD91815989E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E972BDE-213F-4157-8950-734C55F726F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E972BDE-213F-4157-8950-734C55F726F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E972BDE-213F-4157-8950-734C55F726F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E972BDE-213F-4157-8950-734C55F726F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F1379F3-D694-4637-A82E-0938FFF30913}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F1379F3-D694-4637-A82E-0938FFF30913}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F1379F3-D694-4637-A82E-0938FFF30913}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F1379F3-D694-4637-A82E-0938FFF30913}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
