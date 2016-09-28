@@ -12,9 +12,17 @@ namespace AdditionalTask1
     {
         static void Main(string[] args)
         {
-            Triangle triangle = new Triangle(10, 7, new Angle(Math.PI/6));
+            try
+            {
+                Triangle triangle = new Triangle(10, 7, new Angle(Math.PI / -6));
 
-            Console.WriteLine(triangle.Area);
+                Console.WriteLine(triangle.Area);
+            }
+            catch(ArgumentException e)
+            {
+                Console.WriteLine("Error! " + e.Message);
+            }
+            
         }
     }
 }

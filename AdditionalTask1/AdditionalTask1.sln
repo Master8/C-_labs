@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdditionalTask1", "Addition
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Figures", "Figures\Figures.csproj", "{3E972BDE-213F-4157-8950-734C55F726F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triangle.Tests", "Triangle.Tests\Triangle.Tests.csproj", "{3F1379F3-D694-4637-A82E-0938FFF30913}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Triangles.Tests", "Triangle.Tests\Triangles.Tests.csproj", "{3F1379F3-D694-4637-A82E-0938FFF30913}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
