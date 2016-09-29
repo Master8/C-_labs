@@ -12,6 +12,13 @@ namespace Figures
         private double b;
         private double c;
 
+        private Triangle(double sideA, double sideB, double sideC)
+        {
+            this.a = sideA;
+            this.b = sideB;
+            this.c = sideC;
+        }
+
         public double Area
         {
             get
@@ -20,19 +27,19 @@ namespace Figures
             }
         }
 
-        private  void CheckSide(double side)
+        private static void CheckSide(double side)
         {
             if (side <= 0)
                 throw new ArgumentException("Negative value of side");
         }
 
-        private void CheckAngle(Angle angle)
+        private static void CheckAngle(double angle)
         {
-            if (angle.Value <= 0 || angle.Value >= Math.PI)
+            if (angle <= 0 || angle >= Math.PI)
                 throw new ArgumentException("Value of angle out of range, from 0 to pi");
         }
 
-        public Triangle(double sideA, double sideB, double sideC)
+        public static Triangle CreateTriangleFromThreeSides(double sideA, double sideB, double sideC)
         {
             CheckSide(sideA);
             CheckSide(sideB);
@@ -43,34 +50,33 @@ namespace Figures
                 sideC >= sideA + sideB)
                 throw new ArgumentException("One of the sides of a triangle is greater than or equal to the sum of the other two");
 
-            this.a = sideA;
-            this.b = sideB;
-            this.c = sideC;
+            return new Triangle(sideA, sideB, sideC);
         }
 
-        public Triangle(double sideA, double sideB, Angle angleBetweenSides)
+        public static Triangle CreateTriangleFromTwoSidesAndAngle(double sideA, double sideB, double angleBetweenSides)
         {
             CheckSide(sideA);
             CheckSide(sideB);
             CheckAngle(angleBetweenSides);
 
-            this.a = sideA;
-            this.b = sideB;
-            this.c = Math.Sqrt(Math.Pow((a + b), 2) - 4 * a * b * Math.Pow((Math.Cos(angleBetweenSides.Value / 2)), 2));
+            double sideC = Math.Sqrt(Math.Pow((sideA + sideB), 2) - 4 * sideA * sideB * Math.Pow((Math.Cos(angleBetweenSides / 2)), 2));
+
+            return new Triangle(sideA, sideB, sideC);
         }
 
-        public Triangle(double sideBetweenAngles, Angle angleAlpha, Angle angleBetta)
+        public static Triangle CreateTriangleFromSideAndTwoAngles(double sideBetweenAngles, double angleAlpha, double angleBetta)
         {
             CheckSide(sideBetweenAngles);
             CheckAngle(angleAlpha);
             CheckAngle(angleBetta);
 
-            if ((angleAlpha.Value + angleBetta.Value) >= Math.PI)
+            if ((angleAlpha + angleBetta) >= Math.PI)
                 throw new ArgumentException("The sum of two angles is greater or equal to pi");
 
-            this.c = sideBetweenAngles;
-            this.a = c * Math.Sin(angleAlpha.Value) / Math.Sin(Math.PI - angleAlpha.Value - angleBetta.Value);
-            this.b = a * Math.Sin(angleBetta.Value) / Math.Sin(angleAlpha.Value);
+            double sideA = sideBetweenAngles * Math.Sin(angleAlpha) / Math.Sin(Math.PI - angleAlpha - angleBetta);
+            double sideB = sideA * Math.Sin(angleBetta) / Math.Sin(angleAlpha);
+
+            return new Triangle(sideA, sideB, sideBetweenAngles);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Triangles.Tests
             double b = -12;
             double c = 24;
 
-            Triangle triangle = new Triangle(a, b, c);
+            Triangle triangle = Triangle.CreateTriangleFromThreeSides(a, b, c);
         }
 
         [TestMethod]
@@ -25,10 +25,10 @@ namespace Triangles.Tests
         {
             double a = 27;
             double b = 5;
+        
+            double alpha = 6;
 
-            Angle alpha = new Angle(6);
-
-            Triangle triangle = new Triangle(a, b, alpha);
+            Triangle triangle = Triangle.CreateTriangleFromTwoSidesAndAngle(a, b, alpha);
         }
 
         [TestMethod]
@@ -39,7 +39,7 @@ namespace Triangles.Tests
             double b = 12;
             double c = 24;
 
-            Triangle triangle = new Triangle(a, b, c);
+            Triangle triangle = Triangle.CreateTriangleFromThreeSides(a, b, c);
         }
 
         [TestMethod]
@@ -48,10 +48,10 @@ namespace Triangles.Tests
         {
             double a = 16;
 
-            Angle alpha = new Angle(Math.PI / 2);
-            Angle betta = new Angle(Math.PI / 1.5);
+            double alpha = Math.PI / 2;
+            double betta = Math.PI / 1.5;
 
-            Triangle triangle = new Triangle(16, alpha, betta);
+            Triangle triangle = Triangle.CreateTriangleFromSideAndTwoAngles(a, alpha, betta);
         }
 
         [TestMethod]
@@ -61,7 +61,7 @@ namespace Triangles.Tests
             double b = 12;
             double c = 24;
 
-            Triangle triangle = new Triangle(a, b, c);
+            Triangle triangle = Triangle.CreateTriangleFromThreeSides(a, b, c);
 
             Assert.AreEqual(69.25992708630294, triangle.Area, 1e-10);
         }
@@ -72,9 +72,9 @@ namespace Triangles.Tests
             double a = 27;
             double b = 5;
 
-            Angle alpha = new Angle(Math.PI / 6);
+            double alpha = Math.PI / 6;
 
-            Triangle triangle = new Triangle(a, b, alpha);
+            Triangle triangle = Triangle.CreateTriangleFromTwoSidesAndAngle(a, b, alpha);
 
             Assert.AreEqual(33.74999999999999, triangle.Area, 1e-10);
         }
@@ -84,10 +84,10 @@ namespace Triangles.Tests
         {
             double a = 16;
 
-            Angle alpha = new Angle(Math.PI / 3);
-            Angle betta = new Angle(Math.PI / 6);
+            double alpha = Math.PI / 3;
+            double betta = Math.PI / 6;
 
-            Triangle triangle = new Triangle(16, alpha, betta);
+            Triangle triangle = Triangle.CreateTriangleFromSideAndTwoAngles(a, alpha, betta);
 
             Assert.AreEqual(55.42562584220406, triangle.Area, 1e-10);
         }

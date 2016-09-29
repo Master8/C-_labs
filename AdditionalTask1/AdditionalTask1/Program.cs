@@ -14,7 +14,7 @@ namespace AdditionalTask1
         {
             try
             {
-                Triangle triangle = new Triangle(10, 7, new Angle(Math.PI / -6));
+                Triangle triangle = Triangle.CreateTriangleFromTwoSidesAndAngle(10, 7, Math.PI / -6);
 
                 Console.WriteLine(triangle.Area);
             }
