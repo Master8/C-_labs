@@ -10,7 +10,7 @@ namespace Triangles.Tests
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "Negative value of side")]
-        public void TriangleTryCreateTriangleWithNegativeSide()
+        public void TriangleTryCreateTriangleWithNegativeSideArgumentExceptionThrown()
         {
             double a = 35;
             double b = -12;
@@ -21,7 +21,7 @@ namespace Triangles.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "Value of angle out of range, from 0 to pi")]
-        public void TriangleTryCreateTriangleWithAngleOutOfRange()
+        public void TriangleTryCreateTriangleWithAngleOutOfRangeArgumentExceptionThrown()
         {
             double a = 27;
             double b = 5;
@@ -33,7 +33,7 @@ namespace Triangles.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "One of the sides of a triangle is greater than or equal to the sum of the other two")]
-        public void TriangleTryCreateTriangleWithSideGreaterThanthanOtherTwo()
+        public void TriangleTryCreateTriangleWithSideGreaterThanthanOtherTwoArgumentExceptionThrown()
         {
             double a = 50;
             double b = 12;
@@ -44,14 +44,14 @@ namespace Triangles.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "The sum of two angles is greater or equal to pi")]
-        public void TriangleTryCreateTriangleWithTwoAnglesThatSumItGreaterToPI()
+        public void TriangleTryCreateTriangleWithTwoAnglesThatSumItGreaterToPIArgumentExceptionThrown()
         {
             double a = 16;
 
             double alpha = Math.PI / 2;
-            double betta = Math.PI / 1.5;
+            double beta = Math.PI / 1.5;
 
-            Triangle triangle = Triangle.CreateTriangleFromSideAndTwoAngles(a, alpha, betta);
+            Triangle triangle = Triangle.CreateTriangleFromSideAndTwoAngles(a, alpha, beta);
         }
 
         [TestMethod]
@@ -85,9 +85,9 @@ namespace Triangles.Tests
             double a = 16;
 
             double alpha = Math.PI / 3;
-            double betta = Math.PI / 6;
+            double beta = Math.PI / 6;
 
-            Triangle triangle = Triangle.CreateTriangleFromSideAndTwoAngles(a, alpha, betta);
+            Triangle triangle = Triangle.CreateTriangleFromSideAndTwoAngles(a, alpha, beta);
 
             Assert.AreEqual(55.42562584220406, triangle.Area, 1e-10);
         }

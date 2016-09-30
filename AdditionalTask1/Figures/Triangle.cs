@@ -64,17 +64,17 @@ namespace Figures
             return new Triangle(sideA, sideB, sideC);
         }
 
-        public static Triangle CreateTriangleFromSideAndTwoAngles(double sideBetweenAngles, double angleAlpha, double angleBetta)
+        public static Triangle CreateTriangleFromSideAndTwoAngles(double sideBetweenAngles, double angleAlpha, double angleBeta)
         {
             CheckSide(sideBetweenAngles);
             CheckAngle(angleAlpha);
-            CheckAngle(angleBetta);
+            CheckAngle(angleBeta);
 
-            if ((angleAlpha + angleBetta) >= Math.PI)
+            if ((angleAlpha + angleBeta) >= Math.PI)
                 throw new ArgumentException("The sum of two angles is greater or equal to pi");
 
-            double sideA = sideBetweenAngles * Math.Sin(angleAlpha) / Math.Sin(Math.PI - angleAlpha - angleBetta);
-            double sideB = sideA * Math.Sin(angleBetta) / Math.Sin(angleAlpha);
+            double sideA = sideBetweenAngles * Math.Sin(angleAlpha) / Math.Sin(Math.PI - angleAlpha - angleBeta);
+            double sideB = sideA * Math.Sin(angleBeta) / Math.Sin(angleAlpha);
 
             return new Triangle(sideA, sideB, sideBetweenAngles);
         }
