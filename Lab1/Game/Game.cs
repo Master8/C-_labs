@@ -8,8 +8,8 @@ namespace Games
 {
     public class Location
     {
-        public int X { get; set; }
-        public int Y { get; set; }
+        public readonly int X;
+        public readonly int Y;
 
         public Location(int x, int y)
         {
@@ -26,16 +26,21 @@ namespace Games
 
         public int this[int x, int y]
         {
-            get { return gameArea[x, y]; }
-            set { gameArea[x, y] = value; }
+            get
+            {
+                if (x >= 0 && x < sizeArea && y >= 0 && y < sizeArea)
+                    return gameArea[x, y];
+                else
+                    throw new ArgumentException("Value of argument is out of range!");
+            }
         }
-
+        
         public Game(params int[] list)
         {
             int length = list.Length;
             sizeArea = (int)Math.Sqrt(length);
 
-            if (Math.Sqrt(length) - sizeArea != 0)
+            if (length != sizeArea * sizeArea)
                 throw new ArgumentException("It is impossible to construct a square!");
 
             gameArea = new int[sizeArea, sizeArea];
@@ -56,7 +61,10 @@ namespace Games
 
         public Location GetLocation(int value)
         {
-            return locations[value];
+            if (value >= 0 && value < locations.Length)
+                return locations[value];
+            else
+                throw new ArgumentException("Value of argument is out of range!");
         }
 
         public void Shift(int value)
@@ -64,7 +72,7 @@ namespace Games
             Location location = GetLocation(value);
             Location zeroLocation = GetLocation(0);
 
-            if (CheckNearbyZero(location, zeroLocation))
+            if (CheckNearby(location, zeroLocation))
             {
                 gameArea[location.X, location.Y] = 0;
                 gameArea[zeroLocation.X, zeroLocation.Y] = value;
@@ -78,7 +86,7 @@ namespace Games
             }
         }
 
-        private bool CheckNearbyZero(Location location, Location zeroLocation)
+        private bool CheckNearby(Location location, Location zeroLocation)
         {
             return ((location.X == zeroLocation.X) && (Math.Abs(location.Y - zeroLocation.Y) == 1))
                 || ((location.Y == zeroLocation.Y) && (Math.Abs(location.X - zeroLocation.X) == 1));
