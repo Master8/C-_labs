@@ -12,10 +12,9 @@ namespace Lab1
     {
         static void Main(string[] args)
         {
-            Game game = new Game(1, 2, 3, 4, 5, 6, 7, 8, 0);
-
-            game.Shift(8);
-            game.Shift(5);
+            ImmutableGame game = new ImmutableGame(1, 2, 3, 4, 5, 6, 7, 8, 0);
+            
+            ImmutableGame game2 = game.Shift(8);
         }
     }
 }
