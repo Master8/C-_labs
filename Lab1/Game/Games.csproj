@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseGame.cs" />
+    <Compile Include="DecoratorGame.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="ImmutableGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -55,7 +55,7 @@ namespace Games
                 throw new ArgumentException("Value of argument is out of range!");
         }
 
-        protected bool CheckNearby(Location location, Location zeroLocation)
+        protected internal bool CheckNearby(Location location, Location zeroLocation)
         {
             return ((location.X == zeroLocation.X) && (Math.Abs(location.Y - zeroLocation.Y) == 1))
                 || ((location.Y == zeroLocation.Y) && (Math.Abs(location.X - zeroLocation.X) == 1));

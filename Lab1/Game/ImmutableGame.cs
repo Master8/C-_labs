@@ -17,17 +17,7 @@ namespace Games
 
             if (CheckNearby(location, zeroLocation))
             {
-                int[] arrayOfArguments = new int[locations.Length];
-
-                int k = 0;
-                for (int i = 0; i < sizeArea; i++)
-                {
-                    for (int j = 0; j < sizeArea; j++)
-                    {
-                        arrayOfArguments[k] = gameArea[i, j];
-                        k++;
-                    }
-                }
+                int[] arrayOfArguments = BuildArrayOfArguments();
 
                 arrayOfArguments[location.X * sizeArea + location.Y] = 0;
                 arrayOfArguments[zeroLocation.X * sizeArea + zeroLocation.Y] = value; 
@@ -38,6 +28,23 @@ namespace Games
             {
                 throw new ArgumentException("Сan not move the value, not near the place!");
             }
+        }
+
+        internal int[] BuildArrayOfArguments()
+        {
+            int[] arrayOfArguments = new int[locations.Length];
+
+            int k = 0;
+            for (int i = 0; i < sizeArea; i++)
+            {
+                for (int j = 0; j < sizeArea; j++)
+                {
+                    arrayOfArguments[k] = gameArea[i, j];
+                    k++;
+                }
+            }
+
+            return arrayOfArguments;
         }
     }
 }
