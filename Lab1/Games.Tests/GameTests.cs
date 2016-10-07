@@ -8,48 +8,48 @@ namespace Games.Tests
     [TestClass]
     public class GameTests
     {
-        public Game CreateGameWithNineValues()
+        public virtual IGame CreateGameWithNineValues()
         {
             return new Game(1, 4, 2, 0, 5, 8, 6, 7, 3);
         }
 
         [TestMethod]
-        public void CreateGameWithNineValuesAndAccessToTheCoordinates()
+        public virtual void CreateGameWithNineValuesAndAccessToTheCoordinates()
         {
-            Game game = CreateGameWithNineValues();
+            IGame game = CreateGameWithNineValues();
 
             Assert.AreEqual(8, game[1, 2]);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "Value of argument is out of range!")]
-        public void CreateGameWithNineValuesAndAccessToTheWrongCoordinates()
+        public virtual void CreateGameWithNineValuesAndAccessToTheWrongCoordinates()
         {
-            Game game = CreateGameWithNineValues();
+            IGame game = CreateGameWithNineValues();
 
             int value = game[5, 0];
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "Value of argument is out of range!")]
-        public void CreateGameWithNineValuesAndAccessToTheWrongValue()
+        public virtual void CreateGameWithNineValuesAndAccessToTheWrongValue()
         {
-            Game game = CreateGameWithNineValues();
+            IGame game = CreateGameWithNineValues();
 
             Location location = game.GetLocation(-4);
         }
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "It is impossible to construct a square!")]
-        public void CreateGameWithIncorrectCountOfValuesThrownArgumentException()
+        public virtual void CreateGameWithIncorrectCountOfValuesThrownArgumentException()
         {
-            Game game = new Game(1, 4, 2, 0, 5, 8, 6, 7, 3, 9);
+            IGame game = new Game(1, 4, 2, 0, 5, 8, 6, 7, 3, 9);
         }
 
         [TestMethod]
-        public void CreateGameWithNineValuesAndAccessToTheValue()
+        public virtual void CreateGameWithNineValuesAndAccessToTheValue()
         {
-            Game game = CreateGameWithNineValues();
+            IGame game = CreateGameWithNineValues();
             Location location = game.GetLocation(2);
 
             Assert.AreEqual(0, location.X);
@@ -57,9 +57,9 @@ namespace Games.Tests
         }
 
         [TestMethod]
-        public void CreateGameWithNineValuesAndMoveValueNearZero()
+        public virtual void CreateGameWithNineValuesAndMoveValueNearZero()
         {
-            Game game = CreateGameWithNineValues();
+            Game game = (Game)CreateGameWithNineValues();
             game.Shift(6);
 
             Assert.AreEqual(6, game[1, 0]);
@@ -78,9 +78,9 @@ namespace Games.Tests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException), "Сan not move the value, not near the place!")]
-        public void CreateGameWithNineValuesAndMoveValueNotNearZeroThrownArgumentException()
+        public virtual void CreateGameWithNineValuesAndMoveValueNotNearZeroThrownArgumentException()
         {
-            Game game = CreateGameWithNineValues();
+            Game game = (Game)CreateGameWithNineValues();
             game.Shift(8);
         }
     }

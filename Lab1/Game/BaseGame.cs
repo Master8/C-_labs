@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Games
 {
-    public abstract class BaseGame
+    public abstract class BaseGame : IGame
     {
         protected int[,] gameArea;
         protected Location[] locations;

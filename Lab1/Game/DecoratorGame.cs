@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Games
 {
-    public class DecoratorGame
+    public class DecoratorGame : IGame
     {
         private ImmutableGame game;
         private List<int> changes;
