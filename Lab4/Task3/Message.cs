@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Task3
 {
-    public class Message
+    public enum Message
     {
+        PUT,
+        INSERT_ROW,
+        INSERT_COLUMN,
+        GET
     }
 }

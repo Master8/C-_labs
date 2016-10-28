@@ -37,11 +37,14 @@ namespace Task3
             {
                 throw new ArgumentException("Incorrect value of row!");
             }
+
+            NotifyObservers(Message.PUT);
         }
 
         public void InsertRow(int rowIndex)
         {
             matrix.Insert(rowIndex, matrix.Count() > 0 ? new List<int>(matrix[0].Count()) : new List<int>());
+            NotifyObservers(Message.INSERT_ROW);
         }
 
         public void InsertColumn(int columnIndex)
@@ -50,6 +53,7 @@ namespace Task3
             {
                 row.Insert(columnIndex, 0);
             }
+            NotifyObservers(Message.INSERT_COLUMN);
         }
 
         public int Get(int row, int column)
@@ -60,6 +64,7 @@ namespace Task3
 
                 if (currentRow.Count() > column)
                 {
+                    NotifyObservers(Message.GET);
                     return currentRow[column];
                 }
                 else
