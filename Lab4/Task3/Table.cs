@@ -12,6 +12,19 @@ namespace Task3
 
         private List<List<int>> matrix;
 
+        public int[][] CurrentState
+        {
+            get
+            {
+                int[][] currentState = new int[matrix.Count()][];
+
+                for (int i = 0; i < matrix.Count(); i++)                
+                    currentState[i] = matrix[i].ToArray();
+
+                return currentState;
+            }
+        }
+
         public Table()
         {
             this.observers = new List<IObserver<Message>>();
