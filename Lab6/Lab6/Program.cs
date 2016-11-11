@@ -13,14 +13,14 @@ namespace Lab6
         static void Main(string[] args)
         {
             var timer = new Timer();
-            using (timer.Start())
+            using (timer.StartPeriod())
             {
                 // do things
                 Thread.Sleep(100);
             }
             Console.WriteLine(timer.ElapsedMilliseconds);
 
-            using (timer.Continue())
+            using (timer.ContinuePeriod())
             {
                 // do things
                 Thread.Sleep(100);

@@ -20,23 +20,23 @@ namespace Lab6
             }
         }
 
-        public TimerToken Start()
+        public Period StartPeriod()
         {
             stopWatch.Start();
-            return new TimerToken(stopWatch);
+            return new Period(stopWatch);
         }
 
-        public TimerToken Continue()
+        public Period ContinuePeriod()
         {
             stopWatch.Start();
-            return new TimerToken(stopWatch);
+            return new Period(stopWatch);
         }
 
-        public class TimerToken : IDisposable
+        public class Period : IDisposable
         {
             private Stopwatch stopWatch;
 
-            public TimerToken(Stopwatch stopWatch)
+            public Period(Stopwatch stopWatch)
             {
                 this.stopWatch = stopWatch;
             }
