@@ -221,7 +221,6 @@ namespace Lab7
                     for (int i = 0; i < values.Length; i++)
                     {
                         string value = values[i].Trim('\"');
-                        var field = result.GetType().GetField(colums[i]);
 
                         if (value == "NA")
                         {
